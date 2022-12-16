@@ -47,10 +47,11 @@ public class AuthController {
 
         UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
         String userRole = userDetails.getAuthorities().toString();
-
+        //FIXME: ОШИБКА JWT!
         return new JwtResponse(
+                userDetails.getFio(),
                 userDetails.getUsername(),
-                userRole,
+                userRole.replace("[", "").replace("]", ""),
                 jwt);
     }
 
@@ -58,6 +59,7 @@ public class AuthController {
     public UserAccount register(@RequestBody RegistrationRequest registrationRequest) {
         try {
             UserAccount user = new UserAccount();
+            user.setFio(registrationRequest.getFio());
             user.setUsername(registrationRequest.getUsername());
             user.setPassword(passwordEncoder.encode(registrationRequest.getPassword()));
             String requestedRole = registrationRequest.getRole();

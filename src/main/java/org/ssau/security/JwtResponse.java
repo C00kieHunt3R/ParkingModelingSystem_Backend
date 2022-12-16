@@ -6,11 +6,13 @@ import lombok.Data;
 public class JwtResponse {
 
     private final String type = "Bearer";
+    private String fio;
     private String token;
     private String username;
     private String userRole;
 
-    public JwtResponse(String username, String userRole, String token) {
+    public JwtResponse(String fio, String username, String userRole, String token) {
+        this.fio = fio;
         this.username = username;
         this.userRole = userRole;
         this.token = String.format("%s %s", this.type, token);

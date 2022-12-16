@@ -24,6 +24,8 @@ public class UserDetailsImpl implements UserDetails {
     @Serial
     private static final long serialVersionUID = 1L;
 
+    private String fio;
+
     private String username;
 
     @JsonIgnore
@@ -72,6 +74,7 @@ public class UserDetailsImpl implements UserDetails {
                 .collect(Collectors.toList());
 
         return new UserDetailsImpl(
+                user.getFio(),
                 user.getUsername(),
                 user.getPassword(),
                 authorities);
