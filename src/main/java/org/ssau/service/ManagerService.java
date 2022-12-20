@@ -11,4 +11,6 @@ public interface ManagerService {
 
     UserAccount create(UserAccount userAccount);
     UserAccount getById(Long id);
+
+    UserAccount getByUsername(String username);
 }

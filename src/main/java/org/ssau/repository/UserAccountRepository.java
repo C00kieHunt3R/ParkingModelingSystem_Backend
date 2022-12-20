@@ -11,6 +11,6 @@ import java.util.Optional;
 @Repository
 public interface UserAccountRepository extends JpaRepository<UserAccount, Long> {
 
-    Optional<Object> findUserAccountByUsername(String username);
+    Optional<UserAccount> findUserAccountByUsername(String username);
     List<UserAccount> findUserAccountsByRole(UserRole userRole);
 }
