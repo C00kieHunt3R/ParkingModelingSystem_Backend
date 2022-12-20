@@ -30,7 +30,7 @@ public class UserAccount {
 
     @NotBlank(message = "The 'password' field is required")
     @Column(name = "password", nullable = false)
-    //@JsonIgnore
+    @JsonIgnore
     private String password;
 
     @Enumerated(EnumType.STRING)

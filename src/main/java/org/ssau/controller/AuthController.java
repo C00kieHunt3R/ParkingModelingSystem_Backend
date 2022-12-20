@@ -47,9 +47,8 @@ public class AuthController {
 
         UserDetailsImpl userDetails = (UserDetailsImpl) authentication.getPrincipal();
         String userRole = userDetails.getAuthorities().toString();
-        //FIXME: ОШИБКА JWT!
+
         return new JwtResponse(
-                userDetails.getFio(),
                 userDetails.getUsername(),
                 userRole.replace("[", "").replace("]", ""),
                 jwt);
