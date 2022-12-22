@@ -24,7 +24,7 @@ public class ManagerController {
     }
 
     @GetMapping(path = "/get/{username}")
-    @PreAuthorize("hasRole('ROLE_ADMINISTRATOR')")
+    //@PreAuthorize("hasRole('ROLE_ADMINISTRATOR')")
     public UserAccount getByUsername(@PathVariable("username") String username) {
         return managerService.getByUsername(username);
     }
